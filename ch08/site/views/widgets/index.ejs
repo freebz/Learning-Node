@@ -1,0 +1,26 @@
+<!-- 예제 8-5. 개별 위젯을 편집 및 삭제하기 위한 링크를 가진 위젯 색인 페이지 -->
+
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8" />
+ <title><%= title %></title>
+</head>
+<body>
+<% if (widgets.length) { %>
+  <table>
+  <caption>Widgets</caption>
+  <tr><th>ID</th><ht>Name</th><th>Price</th><th>Description</th></tr>
+    <% widgets.forEach(function(widget){ %>
+       <tr>
+       <td><%= widget.id %></td>
+       <td><%= widget.name %></td>
+       <td>$<%= widget.price.toFixed(2) %></td>
+       <td><%= widget.desc %></td>
+       <td><a href="/widgets/<%= widget.id %>/edit">Edit</a></td>
+       <td><a href="/widgets/<%= widget.id %>">Delete</a></td>
+       </tr>
+    <% }) %>
+  </table>
+<% } %>
+</body>
