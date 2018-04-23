@@ -1,0 +1,24 @@
+// 예제 9-2. 상위 5개의 점수를 표시하는 Jade 템플릿 파일
+
+doctype html
+html(lang="en")
+  head
+    title Zowie! Top Scores
+    meta(charset="utf-8")
+    | <style type="text/css">
+    include main.css
+    | </style>
+  body
+    table
+      caption Zowie! Top Scores!
+        tr
+          th Score
+          th Name
+          th Date
+          if scores.length
+            each score in scores
+              if score
+                tr
+                  td #{score.score}
+                  td #{score.first_name} #{score.last_name}
+                  td #{score.date}
